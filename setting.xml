@@ -1,0 +1,118 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+
+    <servers>
+        <server>
+            <id>maven.oracle.com</id>
+            <username>hmishra609@gmail.com</username>
+            <password>TWlzaHJhOThACg==</password>
+            <configuration>
+                <basicAuthScope>
+                    <host>ANY</host>
+                    <port>ANY</port>
+                    <realm>OAM 11g</realm>
+                </basicAuthScope>
+                <httpConfiguration>
+                    <all>
+                        <params>
+                            <property>
+                                <name>http.protocol.allow-circular-redirects</name>
+                                <value>%b,true</value>
+                            </property>
+                        </params>
+                    </all>
+                </httpConfiguration>
+            </configuration>
+        </server>
+        <server>
+            <id>nexus-snapshot</id>
+            <username>admin</username>
+            <password>admin</password>
+        </server>
+        <server>
+            <id>nexus-release</id>
+            <username>admin</username>
+            <password>admin</password>
+        </server>
+        <server>
+            <id>central</id>
+            <username>admin</username>
+            <password>admin</password>
+        </server>
+    </servers>
+    <mirrors>
+        <!--        <mirror>-->
+        <!--            <id>myrepo</id>-->
+        <!--            <name>mirror name</name>-->
+        <!--            <url>https://</url>-->
+        <!--            <mirrorOf>central</mirrorOf>-->
+        <!--        </mirror>-->
+        <mirror>
+            <id>central</id>
+            <name>central</name>
+            <url>http://10.*.*.*:8081/repository/nexus-group/</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <!--        <profile>-->
+        <!--            <id>jboss</id>-->
+        <!--            <repositories>-->
+        <!--                <repository>-->
+        <!--                    <id>jboss</id>-->
+        <!--                    <url>https://maven.repository.redhat.com/ga/</url>-->
+        <!--                    <snapshots>-->
+        <!--                        <enabled>false</enabled>-->
+        <!--                    </snapshots>-->
+        <!--                </repository>-->
+        <!--            </repositories>-->
+        <!--        </profile>-->
+        <profile>
+            <id>spring</id>
+            <repositories>
+                <repository>
+                    <id>springrepo</id>
+                    <url>https://repo.spring.io/milestone/</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>oracle</id>
+            <repositories>
+                <repository>
+                    <id>maven.oracle.com</id>
+                    <name>oracle-maven-repo</name>
+                    <url>https://maven.oracle.com</url>
+                    <layout>default</layout>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </releases>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>maven.oracle.com</id>
+                    <name>oracle-maven-repo</name>
+                    <url>https://maven.oracle.com</url>
+                    <layout>default</layout>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </releases>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>nexus_distribution</id>
+
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>spring</activeProfile>
+        <!--        <activeProfile>oracle</activeProfile>-->
+    </activeProfiles>
+</settings>
