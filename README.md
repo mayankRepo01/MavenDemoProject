@@ -13,7 +13,7 @@ Prerequisite for that are -
 
 ![image](https://github.com/mayankRepo01/MavenDemoProject/assets/83690350/714377cf-44a8-410f-bb7c-c806a076aae2)
 
-2- create a nexus group in that add this this proxy and one nexus repo 
+2- create a nexus group in that add this this proxy and  any release nexus repo 
 
 3 - in the project use just the group repo the jars will be pulled automatically from mvn central proxy and gets stored in nexus
 
